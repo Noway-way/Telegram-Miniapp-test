@@ -9,6 +9,9 @@ final GoRouter router = GoRouter(routes: [
     path: '/',
     name: RouteNames.home.name,
     builder: (context, state) {
+      if (state.uri.queryParameters.containsKey('tgWebAppData')) {
+        return const MyHomePage();
+      }
       // The initial route that shows the BetChoicePage.
       return const MyHomePage();
     },
