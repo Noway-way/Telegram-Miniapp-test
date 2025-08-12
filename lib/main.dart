@@ -1,3 +1,4 @@
+import 'package:example/router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_telegram_miniapp/flutter_telegram_miniapp.dart';
 
@@ -10,12 +11,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'Telegram Mini App Example',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(),
+      routerConfig: router,
     );
   }
 }
@@ -110,8 +111,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 Text('Viewport Height: $_viewportHeight',
                     style: TextStyle(fontSize: 16)),
                 SizedBox(height: 10),
-                Text('Init unsafe Data: $_initDataUnsafe',
-                    style: TextStyle(fontSize: 16)),
+                // Text('Init unsafe Data: $_initDataUnsafe',
+                //     style: TextStyle(fontSize: 16)),
                 SizedBox(height: 10),
                 Text('Init Data: $_initData', style: TextStyle(fontSize: 16)),
                 SizedBox(height: 10),
