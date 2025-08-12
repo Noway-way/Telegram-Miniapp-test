@@ -31,6 +31,7 @@ class _MyHomePageState extends State<MyHomePage> {
   String _colorScheme = 'Not initialized';
   double _viewportHeight = 0.0;
   String _initData = "Empty";
+  String _initDataUnsafe = "Empty";
   String _headerColor = "No color set";
   String _mainButtonText = "Main Button";
 
@@ -46,7 +47,8 @@ class _MyHomePageState extends State<MyHomePage> {
       setState(() {
         _colorScheme = WebApp().colorScheme.name;
         _viewportHeight = WebApp().viewportHeight;
-        _initData = WebApp().initDataUnsafe.user?.firstName ?? 'No user data';
+        _initData = WebApp().initData;
+        _initDataUnsafe = WebApp().initDataUnsafe.toString();
         _headerColor = WebApp().headerColorRaw ?? "No color set";
       });
       _setupEventListeners();
@@ -106,6 +108,9 @@ class _MyHomePageState extends State<MyHomePage> {
                     style: TextStyle(fontSize: 16)),
                 SizedBox(height: 10),
                 Text('Viewport Height: $_viewportHeight',
+                    style: TextStyle(fontSize: 16)),
+                SizedBox(height: 10),
+                Text('Init unsafe Data: $_initDataUnsafe',
                     style: TextStyle(fontSize: 16)),
                 SizedBox(height: 10),
                 Text('Init Data: $_initData', style: TextStyle(fontSize: 16)),
