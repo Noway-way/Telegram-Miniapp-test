@@ -102,43 +102,46 @@ class _MyHomePageState extends State<MyHomePage> {
         body: Center(
           child: Padding(
             padding: const EdgeInsets.all(20.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Text('Color Scheme: $_colorScheme',
-                    style: TextStyle(fontSize: 16)),
-                SizedBox(height: 10),
-                Text('Viewport Height: $_viewportHeight',
-                    style: TextStyle(fontSize: 16)),
-                SizedBox(height: 10),
-                // Text('Init unsafe Data: $_initDataUnsafe',
-                //     style: TextStyle(fontSize: 16)),
-                SizedBox(height: 10),
-                Text('Init Data: $_initData', style: TextStyle(fontSize: 16)),
-                SizedBox(height: 10),
-                Text('Header Color: $_headerColor',
-                    style: TextStyle(fontSize: 16)),
-                SizedBox(height: 20),
-                ElevatedButton(
-                  onPressed: () {
-                    WebApp().setHeaderColor(Colors.red);
-                    setState(() {
-                      _headerColor = WebApp().headerColorRaw ?? "No color set";
-                    });
-                  },
-                  child: Text('Set Header Color to Red'),
-                ),
-                SizedBox(height: 10),
-                ElevatedButton(
-                  onPressed: () {
-                    WebApp().mainButton.setText("Main button changed");
-                    setState(() {
-                      _mainButtonText = WebApp().mainButton.text;
-                    });
-                  },
-                  child: Text('Change main button text'),
-                ),
-              ],
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text('Color Scheme: $_colorScheme',
+                      style: TextStyle(fontSize: 16)),
+                  SizedBox(height: 10),
+                  Text('Viewport Height: $_viewportHeight',
+                      style: TextStyle(fontSize: 16)),
+                  SizedBox(height: 10),
+                  // Text('Init unsafe Data: $_initDataUnsafe',
+                  //     style: TextStyle(fontSize: 16)),
+                  SizedBox(height: 10),
+                  Text('Init Data: $_initData', style: TextStyle(fontSize: 16)),
+                  SizedBox(height: 10),
+                  Text('Header Color: $_headerColor',
+                      style: TextStyle(fontSize: 16)),
+                  SizedBox(height: 20),
+                  ElevatedButton(
+                    onPressed: () {
+                      WebApp().setHeaderColor(Colors.red);
+                      setState(() {
+                        _headerColor =
+                            WebApp().headerColorRaw ?? "No color set";
+                      });
+                    },
+                    child: Text('Set Header Color to Red'),
+                  ),
+                  SizedBox(height: 10),
+                  ElevatedButton(
+                    onPressed: () {
+                      WebApp().mainButton.setText("Main button changed");
+                      setState(() {
+                        _mainButtonText = WebApp().mainButton.text;
+                      });
+                    },
+                    child: Text('Change main button text'),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
